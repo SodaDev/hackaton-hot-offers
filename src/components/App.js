@@ -5,7 +5,11 @@ import {Budget} from './budget/Budget';
 import {Settings} from './settings/Settings';
 import {DestinationsFrom} from './destinations/DestinationsFrom';
 import {DestinationsTo} from './destinations/DestinationsTo';
+import {Modal} from './modal/Modal';
+import {Destination} from './destinations/Destination';
 import {loadAirports, loadAirportsFrom} from '../lib/hotOffersService';
+import {flatten} from '../lib/utils';
+import {addToWatchedList} from '../lib/destinationsHelpers';
 
 class App extends Component {
     render() {
@@ -20,7 +24,16 @@ class App extends Component {
                                 airports={this.state.filteredAirports}
                                 handleInputChange={this.handleInputChange}
                                 selectDestinationFrom={this.selectDestinationFrom} />
-                            <DestinationsTo destinations={this.state.watchedDestinations} />
+                            <DestinationsTo 
+                                destinations={this.state.watchedDestinations}
+                                addDestination={this.addDestination} />
+                            <Modal modalActive={this.state.modalActive} toggleModal={this.toggleModal}>
+                                {this.state.airportsTo.map(airport => (
+                                    <Destination key={airport.iataCode}
+                                        airport={airport}
+                                        addToWatched={this.addToWatched} />
+                                ))}
+                            </Modal>
                         </section>
                         <Budget />
                         <Settings />
@@ -33,32 +46,27 @@ class App extends Component {
 
     state = {
         currentLocation: 'Wroclaw',
-        watchedDestinations: [
-            {country: 'Spain', city: 'Barcelona', iataCode: 'BCN'},
-            {country: 'Poland', city: 'Warsaw', iataCode: 'WAW'}
-        ],
+        watchedDestinations: [],
         allAirports: [],
-        filteredAirports: []
+        filteredAirports: [],
+        airportsTo: [],
+        modalActive: false
     }
 
     componentDidMount () {
-        loadAirports().then(res => {
-            this.setState({
-                allAirports: res
-            });
-        });
+        loadAirports().then(allAirports => this.setState({allAirports}));
 
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(this.loadNearestAirport, this.loadDeafaultAirport);
         } else {
             console.log('no geolocation')
         }
-        // loadAirports().then(res => console.log(res));
     }
 
     selectDestinationFrom = (airport) => {
         this.setState({
-            currentLocation: airport.name
+            currentLocation: airport.name,
+            filteredAirports: []
         });
     }
 
@@ -82,7 +90,7 @@ class App extends Component {
         });
 
         if (inputVal.length >= 3) {
-            const filteredAirports = this.state.allAirports.filter(airport => airport.name.includes(inputVal));
+            const filteredAirports = this.state.allAirports.filter(airport => airport.name.match(new RegExp(inputVal, 'i')));
             this.setState({
                 filteredAirports: filteredAirports
             });
@@ -93,9 +101,55 @@ class App extends Component {
         }
     }
 
+    // load airport from here or after starting airport selected???
     addDestination = () => {
-        console.log('add dest')
-        // loadAirportsFrom(this.state.currentLocation.iataCode)
+        this.toggleModal();
+        loadAirportsFrom(this.state.currentLocation.iataCode)
+            .then(airportsTo => {
+                // const newList = airportsTo.map(port => {
+                //     if (this.state.watchedDestinations.length) {
+                //         const filteredList = this.state.watchedDestinations.map(dest => {
+                //             if (dest.iataCode === port.iataCode) {
+                //                 console.log(port)
+                //                 return Object.assign({}, port, {isWatched: true});
+                //             } else {
+                //                 return Object.assign({}, port, {isWatched: false});
+                //             }
+                //         });
+                //         return filteredList[0];
+                //     } else {
+                //         return Object.assign({}, port, {isWatched: false});
+                //     }
+                // });
+                this.setState({airportsTo})
+            })
+    }
+
+    addToWatched = (airport) => {
+        const res = this.state.watchedDestinations.filter(dest => dest.iataCode === airport.iataCode);
+        if (res.length) {
+            return;
+        }
+        this.toggleModal();
+        const updatedList = addToWatchedList(this.state.watchedDestinations, airport);
+        
+        this.setState({
+            watchedDestinations: updatedList
+        });
+    }
+
+    toggleModal = () => {
+        const bodyEl = document.querySelector('body');
+        
+        this.setState({
+            modalActive: !this.state.modalActive
+        });
+        
+        if (bodyEl.classList.contains('noscroll')) {
+            bodyEl.classList.remove('noscroll')
+        } else {
+            bodyEl.classList.add('noscroll')
+        }
     }
 }
 

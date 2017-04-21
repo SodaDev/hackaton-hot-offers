@@ -7,7 +7,7 @@ export const Budget = () => {
         <h3 className="section_title">Select your Budget</h3>
         <p className="section_desc">Specify the maximum amount you would like to spend on the flight tickets.</p>
         <div className="section_bud_cards row">
-          <div className="section_single_bud">
+          <div className="section_single_bud selected">
             <h4 className="single_bud_price">€20</h4>
           </div>
           <div className="section_single_bud">
