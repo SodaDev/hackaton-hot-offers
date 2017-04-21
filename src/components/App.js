@@ -1,12 +1,18 @@
 import React, {Component} from "react";
-import { Provider } from 'react-redux';
+import {Header} from './header/Header';
+import {Footer} from './footer/Footer';
+import {Main} from './main/Main';
 
 class App extends Component {
     render() {
         return (
-            <Provider store={this.props.store}>
-                {this.props.children}
-            </Provider>
+            <div className="content-wrapper">
+                <article className="ho_card">
+                    <Header className="Header" />
+                    <Main className="Main" />
+                    <Footer className="Footer" />
+                </article>
+            </div>
         );
     }
 }
