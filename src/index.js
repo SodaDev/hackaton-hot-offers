@@ -9,7 +9,7 @@ const store = configureStore();
 
 ReactDOM.render(
     <App store={store}>
-        <div>chuj</div>
+        <div>Ryanair hackaton</div>
     </App>,
     document.getElementById('root')
 );
