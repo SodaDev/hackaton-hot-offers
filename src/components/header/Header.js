@@ -13,7 +13,7 @@ export const Header = () => {
       </div>
       <div className="row">
         <div className="col70">
-          <h2 className="ho_card__subtitle">The feature is switched <span id="ho_card__state">off</span></h2>
+          <h2 className="ho_card__subtitle">The feature is switched <span id="ho_card__state">on</span></h2>
         </div>
         <div className="col30 expandable">
           <div className="ho_card__info">More info</div>

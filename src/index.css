@@ -225,7 +225,7 @@ body {
         line-height: 19px;
         margin-bottom: 10px; }
     .ho_card .ho_card__content .ho_card_from input {
-      width: 250px; }
+      width: 100%; }
     .ho_card .ho_card__content .ho_input {
       font-family: 'Roboto', Arial, sans-serif;
       font-size: 14px;
