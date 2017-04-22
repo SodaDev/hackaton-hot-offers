@@ -9,7 +9,7 @@ import {Modal} from './modal/Modal';
 import {Destination} from './destinations/Destination';
 import {loadAirports, loadAirportsFrom} from '../lib/hotOffersService';
 import {flatten} from '../lib/utils';
-import {addToWatchedList} from '../lib/destinationsHelpers';
+import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
 
 class App extends Component {
     render() {
@@ -35,7 +35,7 @@ class App extends Component {
                                 ))}
                             </Modal>
                         </section>
-                        <Budget />
+                        <Budget budgets={this.state.availableBudgets} selectBudget={this.selectBudget} />
                         <Settings />
                     </main>
                     <Footer className="Footer" />
@@ -45,12 +45,20 @@ class App extends Component {
     }
 
     state = {
-        currentLocation: 'Wroclaw',
+        currentLocation: '',
         watchedDestinations: [],
         allAirports: [],
         filteredAirports: [],
         airportsTo: [],
-        modalActive: false
+        modalActive: false,
+        availableBudgets: [
+            {id: 1, price: 20, selected: false }, 
+            {id: 2, price: 50, selected: false }, 
+            {id: 3, price: 60, selected: false }, 
+            {id: 4, price: 80, selected: false }, 
+            {id: 5, price: 100, selected: false }, 
+            {id: 6, price: 150, selected: true}
+        ]
     }
 
     componentDidMount () {
@@ -61,6 +69,13 @@ class App extends Component {
         } else {
             console.log('no geolocation')
         }
+    }
+
+    selectBudget = (selectedBudget) => {
+        const newBudgets = this.state.availableBudgets.map(budget => budget.id === selectedBudget.id ? toggleBudget(selectedBudget) : removeSelection(budget));
+        this.setState({
+            availableBudgets: newBudgets
+        });
     }
 
     selectDestinationFrom = (airport) => {
