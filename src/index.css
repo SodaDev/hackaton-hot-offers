@@ -743,6 +743,7 @@ body {
 .overlay.is-open {
     opacity: 1;
     pointer-events: auto;
+    z-index: 9999;
 }
 
 .overlay.is-open .modal {
