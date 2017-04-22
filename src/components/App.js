@@ -20,7 +20,7 @@ class App extends Component {
                     <main className="ho_card__content">
                         <section id="destinations" className="ho_card__section">
                             <DestinationsFrom 
-                                currentLocation={this.state.currentLocation}
+                                currentLocation={this.state.currentLocation.name}
                                 airports={this.state.filteredAirports}
                                 handleInputChange={this.handleInputChange}
                                 selectDestinationFrom={this.selectDestinationFrom} />
@@ -41,7 +41,7 @@ class App extends Component {
     }
 
     state = {
-        currentLocation: 'Wroclaw',
+        currentLocation: {},
         watchedDestinations: [],
         allAirports: [],
         filteredAirports: [],
@@ -61,7 +61,7 @@ class App extends Component {
 
     selectDestinationFrom = (airport) => {
         this.setState({
-            currentLocation: airport.iataCode,
+            currentLocation: airport,
             filteredAirports: []
         });
     };
@@ -75,7 +75,7 @@ class App extends Component {
 
     loadDeafaultAirport = () => {
         this.setState({
-            currentLocation: 'Wroclaw'
+            currentLocation: {}
         });
     };
 
