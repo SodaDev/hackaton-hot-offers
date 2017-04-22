@@ -11,6 +11,12 @@ export const loadAirportsFrom = (code) => {
     .then(res => res.json());
 };
 
+export const fetchAirportFromCoord = (lat, lon) => {
+  const latLonUrl = `${baseUrl}/airports?lat=${lat}&lon=${lon}`;
+  return fetch(latLonUrl)
+    .then(res => res.json())
+}
+
 export const saveUserDetails = (currentLocation, watchedDestinations, availableBudgets) => {
     const airportFrom = currentLocation.iataCode;
     const destinations = watchedDestinations
