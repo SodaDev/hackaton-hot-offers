@@ -1,13 +1,16 @@
 "use strict";
 
 var offersSocket = new WebSocket("ws://10.48.20.95:8080/hot-offers/offers");
+var sessionId = Math.ceil(Math.random() * 1000000000);
 
 offersSocket.addEventListener('error', function (event) {
     console.error('WebSocket error occurred', event)
 });
 
 offersSocket.addEventListener('open', function (event) {
-    offersSocket.send('12345');
+    var userSession = '12345:' + sessionId;
+    console.info('Logged as user with session', userSession);
+    offersSocket.send(userSession);
 });
 
 offersSocket.addEventListener('close', function (event) {
@@ -15,7 +18,11 @@ offersSocket.addEventListener('close', function (event) {
 });
 
 offersSocket.addEventListener('message', function (event) {
-    console.log('Message from server in ws.js', event);
+    console.log('Message from server in Service Worker', event);
+    if (JSON.parse(event.data).fares.length === 0) {
+        return;
+    }
+
     var price = JSON.parse(event.data).fares[0].outbound.price;
     var arrival = JSON.parse(event.data).fares[0].outbound.arrivalAirport.name;
     self.registration.showNotification("Got new offers!", {
