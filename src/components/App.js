@@ -7,7 +7,7 @@ import {DestinationsFrom} from './destinations/DestinationsFrom';
 import {DestinationsTo} from './destinations/DestinationsTo';
 import {Modal} from './modal/Modal';
 import {DestinationsList} from './destinations/DestinationsList';
-import {loadAirports, loadAirportsFrom} from '../lib/hotOffersService';
+import {loadAirports, loadAirportsFrom, fetchAirportFromCoord} from '../lib/hotOffersService';
 import {flatten} from '../lib/utils';
 import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
 
@@ -41,7 +41,10 @@ class App extends Component {
     }
 
     state = {
-        currentLocation: {},
+        currentLocation: {
+            name: '',
+            iataCode: ''
+        },
         watchedDestinations: [],
         allAirports: [],
         filteredAirports: [],
@@ -82,10 +85,10 @@ class App extends Component {
     };
 
     loadNearestAirport = (geolocation) => {
-        console.log(geolocation.coords.latitude, geolocation.coords.longitude)
-        this.setState({
-            currentLocation: 'London'
-        });
+        fetchAirportFromCoord(geolocation.coords.latitude, geolocation.coords.longitude)
+            .then(airport => {
+                this.setState({currentLocation: airport[0]});
+            });
     };
 
     loadDeafaultAirport = () => {
