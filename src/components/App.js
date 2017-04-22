@@ -47,7 +47,7 @@ class App extends Component {
         filteredAirports: [],
         airportsTo: [],
         modalActive: false
-    }
+    };
 
     componentDidMount () {
         loadAirports().then(allAirports => this.setState({allAirports}));
@@ -61,23 +61,23 @@ class App extends Component {
 
     selectDestinationFrom = (airport) => {
         this.setState({
-            currentLocation: airport.name,
+            currentLocation: airport.iataCode,
             filteredAirports: []
         });
-    }
+    };
 
     loadNearestAirport = (geolocation) => {
         console.log(geolocation.coords.latitude, geolocation.coords.longitude)
         this.setState({
             currentLocation: 'London'
         });
-    }
+    };
 
     loadDeafaultAirport = () => {
         this.setState({
             currentLocation: 'Wroclaw'
         });
-    }
+    };
 
     handleInputChange = (e) => {
         const inputVal = e.target.value;
@@ -95,7 +95,7 @@ class App extends Component {
                 filteredAirports: []
             });
         }
-    }
+    };
 
     // load airport from here or after starting airport selected???
     addDestination = () => {
@@ -119,7 +119,7 @@ class App extends Component {
                 // });
                 this.setState({airportsTo})
             })
-    }
+    };
 
     addToWatched = (airport) => {
         const res = this.state.watchedDestinations.filter(dest => dest.iataCode === airport.iataCode);
@@ -132,7 +132,7 @@ class App extends Component {
         this.setState({
             watchedDestinations: updatedList
         });
-    }
+    };
 
     toggleModal = () => {
         const bodyEl = document.querySelector('body');
