@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {Header} from './header/Header';
-import {Footer} from './footer/Footer';
-import {Budget} from './budget/Budget';
-import {Settings} from './settings/Settings';
-import {DestinationsFrom} from './destinations/DestinationsFrom';
-import {DestinationsTo} from './destinations/DestinationsTo';
-import {Modal} from './modal/Modal';
-import {Destination} from './destinations/Destination';
-import {loadAirports, loadAirportsFrom} from '../lib/hotOffersService';
-import {flatten} from '../lib/utils';
-import {addToWatchedList} from '../lib/destinationsHelpers';
+import React, {Component} from "react";
+import {Header} from "./header/Header";
+import {Footer} from "./footer/Footer";
+import {Budget} from "./budget/Budget";
+import {Settings} from "./settings/Settings";
+import {DestinationsFrom} from "./destinations/DestinationsFrom";
+import {DestinationsTo} from "./destinations/DestinationsTo";
+import {Modal} from "./modal/Modal";
+import {DestinationsList} from "./destinations/DestinationsList";
+import {loadAirports, loadAirportsFrom} from "../lib/hotOffersService";
+import {flatten} from "../lib/utils";
+import {addToWatchedList} from "../lib/destinationsHelpers";
 
 class App extends Component {
     render() {
@@ -28,11 +28,7 @@ class App extends Component {
                                 destinations={this.state.watchedDestinations}
                                 addDestination={this.addDestination} />
                             <Modal modalActive={this.state.modalActive} toggleModal={this.toggleModal}>
-                                {this.state.airportsTo.map(airport => (
-                                    <Destination key={airport.iataCode}
-                                        airport={airport}
-                                        addToWatched={this.addToWatched} />
-                                ))}
+                                <DestinationsList destinations={this.state.airportsTo} addToWatched={this.addToWatched}/>
                             </Modal>
                         </section>
                         <Budget />

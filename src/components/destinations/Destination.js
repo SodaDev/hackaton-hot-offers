@@ -18,4 +18,4 @@ export const Destination = (props) => {
       <p className="section_single_dest__code">{props.airport.iataCode}</p>
     </div>
   )
-}
+};
