@@ -8,7 +8,7 @@ import {DestinationsTo} from './destinations/DestinationsTo';
 import {Modal} from './modal/Modal';
 import {DestinationsList} from './destinations/DestinationsList';
 import {loadAirports, loadAirportsFrom, saveUserDetails, fetchAirportFromCoord} from "../lib/hotOffersService";
-import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
+import {addToWatchedList, toggleBudget, removeSelection, nameComparator} from '../lib/destinationsHelpers';
 import {SnackBar} from './snackbar/SnackBar';
 
 let timeouts = [];
@@ -159,9 +159,10 @@ class App extends Component {
     addDestination = () => {
         this.toggleModal();
         loadAirportsFrom(this.state.currentLocation.iataCode)
-            .then(airportsTo => {
-                this.setState({airportsTo})
-            })
+            .then(airports => {
+                const airportsTo = airports.sort(nameComparator);
+                this.setState({airportsTo});
+            });
     };
 
     addToWatched = (airport) => {
