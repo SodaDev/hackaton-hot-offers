@@ -559,19 +559,22 @@ body {
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    .ho_card .ho_card__content .section_single_add {
+    .ho_card .ho_card__content .section_single_add,
+    .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
     }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    .ho_card .ho_card__content .section_single_add {
+    .ho_card .ho_card__content .section_single_add,
+    .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
     }
 }
 
 @media only screen and (min-width: 1200px) {
-    .ho_card .ho_card__content .section_single_add {
+    .ho_card .ho_card__content .section_single_add,
+    .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
     }
 }
