@@ -1,0 +1,982 @@
+{
+  "wro": [
+    {
+      "iataCode": "STN",
+      "name": "London Stansted"
+    },
+    {
+      "iataCode": "CRL",
+      "name": "Brussels Charleroi"
+    },
+    {
+      "iataCode": "DUB",
+      "name": "Dublin"
+    },
+    {
+      "iataCode": "LBA",
+      "name": "Leeds Bradford"
+    },
+    {
+      "iataCode": "TRF",
+      "name": "Oslo Torp"
+    },
+    {
+      "iataCode": "MAD",
+      "name": "Madrid"
+    },
+    {
+      "iataCode": "ORK",
+      "name": "Cork"
+    },
+    {
+      "iataCode": "MAN",
+      "name": "Manchester"
+    },
+    {
+      "iataCode": "TLV",
+      "name": "Tel Aviv"
+    },
+    {
+      "iataCode": "BVA",
+      "name": "Paris Beauvais"
+    },
+    {
+      "iataCode": "CHQ",
+      "name": "Chania"
+    },
+    {
+      "iataCode": "GDN",
+      "name": "Gdansk"
+    },
+    {
+      "iataCode": "LPL",
+      "name": "Liverpool"
+    },
+    {
+      "iataCode": "BFS",
+      "name": "Belfast International"
+    },
+    {
+      "iataCode": "WAW",
+      "name": "Warsaw Chopin"
+    },
+    {
+      "iataCode": "CIA",
+      "name": "Rome Ciampino"
+    },
+    {
+      "iataCode": "PMI",
+      "name": "Mallorca"
+    },
+    {
+      "iataCode": "ALC",
+      "name": "Alicante"
+    },
+    {
+      "iataCode": "EMA",
+      "name": "East Midlands"
+    },
+    {
+      "iataCode": "NAP",
+      "name": "Naples"
+    },
+    {
+      "iataCode": "BRS",
+      "name": "Bristol"
+    },
+    {
+      "iataCode": "EDI",
+      "name": "Edinburgh"
+    },
+    {
+      "iataCode": "LIS",
+      "name": "Lisbon"
+    },
+    {
+      "iataCode": "NCL",
+      "name": "Newcastle"
+    },
+    {
+      "iataCode": "TSF",
+      "name": "Venice Treviso"
+    },
+    {
+      "iataCode": "SNN",
+      "name": "Shannon"
+    },
+    {
+      "iataCode": "MLA",
+      "name": "Malta"
+    },
+    {
+      "iataCode": "BGY",
+      "name": "Milan Bergamo"
+    },
+    {
+      "iataCode": "LWO",
+      "name": "Lviv"
+    },
+    {
+      "iataCode": "GLA",
+      "name": "Glasgow"
+    },
+    {
+      "iataCode": "RYG",
+      "name": "N/A"
+    },
+    {
+      "iataCode": "AGP",
+      "name": "Malaga"
+    },
+    {
+      "iataCode": "BLQ",
+      "name": "Bologna"
+    },
+    {
+      "iataCode": "TFS",
+      "name": "Tenerife South"
+    },
+    {
+      "iataCode": "PMO",
+      "name": "Palermo"
+    },
+    {
+      "iataCode": "GRO",
+      "name": "Barcelona Girona"
+    }
+  ],
+  "airports": [
+    {
+      "iataCode": "LEJ",
+      "name": "Leipzig"
+    },
+    {
+      "iataCode": "LGW",
+      "name": "London Gatwick"
+    },
+    {
+      "iataCode": "SCQ",
+      "name": "Santiago"
+    },
+    {
+      "iataCode": "BZG",
+      "name": "Bydgoszcz"
+    },
+    {
+      "iataCode": "LCA",
+      "name": "Larnaca"
+    },
+    {
+      "iataCode": "EMA",
+      "name": "East Midlands"
+    },
+    {
+      "iataCode": "OMR",
+      "name": "Oradea"
+    },
+    {
+      "iataCode": "JTR",
+      "name": "Santorini"
+    },
+    {
+      "iataCode": "VST",
+      "name": "Stockholm VÃ¤sterÃ¥s"
+    },
+    {
+      "iataCode": "LIG",
+      "name": "Limoges"
+    },
+    {
+      "iataCode": "TNG",
+      "name": "Tangier"
+    },
+    {
+      "iataCode": "BRE",
+      "name": "Bremen"
+    },
+    {
+      "iataCode": "TPS",
+      "name": "Trapani"
+    },
+    {
+      "iataCode": "BOH",
+      "name": "Bournemouth"
+    },
+    {
+      "iataCode": "FEZ",
+      "name": "Fez"
+    },
+    {
+      "iataCode": "FUE",
+      "name": "Fuerteventura"
+    },
+    {
+      "iataCode": "BUD",
+      "name": "Budapest"
+    },
+    {
+      "iataCode": "TSR",
+      "name": "Timisoara"
+    },
+    {
+      "iataCode": "ABZ",
+      "name": "Aberdeen"
+    },
+    {
+      "iataCode": "WMI",
+      "name": "Warsaw Modlin"
+    },
+    {
+      "iataCode": "RDZ",
+      "name": "Rodez"
+    },
+    {
+      "iataCode": "MJV",
+      "name": "Murcia"
+    },
+    {
+      "iataCode": "SUF",
+      "name": "Lamezia"
+    },
+    {
+      "iataCode": "LIL",
+      "name": "Lille"
+    },
+    {
+      "iataCode": "SZG",
+      "name": "Salzburg"
+    },
+    {
+      "iataCode": "STR",
+      "name": "Stuttgart"
+    },
+    {
+      "iataCode": "BTS",
+      "name": "Bratislava"
+    },
+    {
+      "iataCode": "MAH",
+      "name": "Menorca"
+    },
+    {
+      "iataCode": "BVA",
+      "name": "Paris Beauvais"
+    },
+    {
+      "iataCode": "CRA",
+      "name": "Craiova"
+    },
+    {
+      "iataCode": "MXP",
+      "name": "Milan Malpensa"
+    },
+    {
+      "iataCode": "FCO",
+      "name": "Rome Fiumicino"
+    },
+    {
+      "iataCode": "BIQ",
+      "name": "Biarritz"
+    },
+    {
+      "iataCode": "MPL",
+      "name": "Montpellier"
+    },
+    {
+      "iataCode": "LDE",
+      "name": "Lourdes"
+    },
+    {
+      "iataCode": "FKB",
+      "name": "Karlsruhe/Baden-Baden"
+    },
+    {
+      "iataCode": "SOF",
+      "name": "Sofia"
+    },
+    {
+      "iataCode": "VNO",
+      "name": "Vilnius"
+    },
+    {
+      "iataCode": "PDL",
+      "name": "Ponta Delgada"
+    },
+    {
+      "iataCode": "PSR",
+      "name": "Pescara"
+    },
+    {
+      "iataCode": "NAP",
+      "name": "Naples"
+    },
+    {
+      "iataCode": "BRS",
+      "name": "Bristol"
+    },
+    {
+      "iataCode": "TGD",
+      "name": "Podgorica"
+    },
+    {
+      "iataCode": "BGY",
+      "name": "Milan Bergamo"
+    },
+    {
+      "iataCode": "BLQ",
+      "name": "Bologna"
+    },
+    {
+      "iataCode": "WRO",
+      "name": "Wroclaw"
+    },
+    {
+      "iataCode": "KBP",
+      "name": "Kiev-Borispol"
+    },
+    {
+      "iataCode": "GOA",
+      "name": "Genoa"
+    },
+    {
+      "iataCode": "PIS",
+      "name": "Poitiers"
+    },
+    {
+      "iataCode": "SZZ",
+      "name": "Szczecin"
+    },
+    {
+      "iataCode": "LCJ",
+      "name": "Lodz"
+    },
+    {
+      "iataCode": "ATH",
+      "name": "Athens"
+    },
+    {
+      "iataCode": "KRK",
+      "name": "Krakow"
+    },
+    {
+      "iataCode": "CFU",
+      "name": "Corfu"
+    },
+    {
+      "iataCode": "DOL",
+      "name": "Deauville"
+    },
+    {
+      "iataCode": "ZAZ",
+      "name": "Zaragoza"
+    },
+    {
+      "iataCode": "PRG",
+      "name": "Prague"
+    },
+    {
+      "iataCode": "LEI",
+      "name": "Almeria"
+    },
+    {
+      "iataCode": "FRA",
+      "name": "Frankfurt International"
+    },
+    {
+      "iataCode": "SKG",
+      "name": "Thessaloniki"
+    },
+    {
+      "iataCode": "RBA",
+      "name": "Rabat"
+    },
+    {
+      "iataCode": "RIX",
+      "name": "Riga"
+    },
+    {
+      "iataCode": "VAR",
+      "name": "Varna"
+    },
+    {
+      "iataCode": "MRS",
+      "name": "Marseille"
+    },
+    {
+      "iataCode": "PDV",
+      "name": "Plovdiv"
+    },
+    {
+      "iataCode": "ORK",
+      "name": "Cork"
+    },
+    {
+      "iataCode": "HAM",
+      "name": "Hamburg"
+    },
+    {
+      "iataCode": "NQY",
+      "name": "Newquay Cornwall"
+    },
+    {
+      "iataCode": "OPO",
+      "name": "Porto"
+    },
+    {
+      "iataCode": "BOD",
+      "name": "Bordeaux"
+    },
+    {
+      "iataCode": "EBU",
+      "name": "St Etienne"
+    },
+    {
+      "iataCode": "REU",
+      "name": "Barcelona Reus"
+    },
+    {
+      "iataCode": "CUF",
+      "name": "Cuneo"
+    },
+    {
+      "iataCode": "VRN",
+      "name": "Verona"
+    },
+    {
+      "iataCode": "PMF",
+      "name": "Parma"
+    },
+    {
+      "iataCode": "LBA",
+      "name": "Leeds Bradford"
+    },
+    {
+      "iataCode": "BRQ",
+      "name": "Brno"
+    },
+    {
+      "iataCode": "LPA",
+      "name": "Gran Canaria"
+    },
+    {
+      "iataCode": "LPL",
+      "name": "Liverpool"
+    },
+    {
+      "iataCode": "AGP",
+      "name": "Malaga"
+    },
+    {
+      "iataCode": "JMK",
+      "name": "Mykonos"
+    },
+    {
+      "iataCode": "DTM",
+      "name": "Dortmund"
+    },
+    {
+      "iataCode": "TLS",
+      "name": "Toulouse"
+    },
+    {
+      "iataCode": "PMO",
+      "name": "Palermo"
+    },
+    {
+      "iataCode": "PED",
+      "name": "Pardubice"
+    },
+    {
+      "iataCode": "MMX",
+      "name": "Malmo"
+    },
+    {
+      "iataCode": "VCE",
+      "name": "Venice M.Polo"
+    },
+    {
+      "iataCode": "SXF",
+      "name": "Berlin SchÃ¶nefeld"
+    },
+    {
+      "iataCode": "VDA",
+      "name": "Eilat"
+    },
+    {
+      "iataCode": "ALC",
+      "name": "Alicante"
+    },
+    {
+      "iataCode": "FNI",
+      "name": "Nimes"
+    },
+    {
+      "iataCode": "OTP",
+      "name": "Bucharest"
+    },
+    {
+      "iataCode": "LDY",
+      "name": "Derry"
+    },
+    {
+      "iataCode": "XCR",
+      "name": "Paris Vatry"
+    },
+    {
+      "iataCode": "CCF",
+      "name": "Carcassonne"
+    },
+    {
+      "iataCode": "AGA",
+      "name": "Agadir"
+    },
+    {
+      "iataCode": "IBZ",
+      "name": "Ibiza"
+    },
+    {
+      "iataCode": "DUB",
+      "name": "Dublin"
+    },
+    {
+      "iataCode": "ZAD",
+      "name": "Zadar"
+    },
+    {
+      "iataCode": "VIT",
+      "name": "Vitoria (Basque Country)"
+    },
+    {
+      "iataCode": "AAL",
+      "name": "Aalborg"
+    },
+    {
+      "iataCode": "FSC",
+      "name": "Figari"
+    },
+    {
+      "iataCode": "MST",
+      "name": "Maastricht"
+    },
+    {
+      "iataCode": "STN",
+      "name": "London Stansted"
+    },
+    {
+      "iataCode": "CGN",
+      "name": "Cologne"
+    },
+    {
+      "iataCode": "LYS",
+      "name": "Lyon"
+    },
+    {
+      "iataCode": "NDR",
+      "name": "Nador"
+    },
+    {
+      "iataCode": "EGC",
+      "name": "Bergerac"
+    },
+    {
+      "iataCode": "TSF",
+      "name": "Venice Treviso"
+    },
+    {
+      "iataCode": "XRY",
+      "name": "Jerez"
+    },
+    {
+      "iataCode": "EDI",
+      "name": "Edinburgh"
+    },
+    {
+      "iataCode": "VXO",
+      "name": "VÃ¤xjÃ¶ SmÃ¥land"
+    },
+    {
+      "iataCode": "FAO",
+      "name": "Faro"
+    },
+    {
+      "iataCode": "BRU",
+      "name": "Brussels"
+    },
+    {
+      "iataCode": "TFS",
+      "name": "Tenerife South"
+    },
+    {
+      "iataCode": "BVE",
+      "name": "Brive"
+    },
+    {
+      "iataCode": "BDS",
+      "name": "Brindisi"
+    },
+    {
+      "iataCode": "MAD",
+      "name": "Madrid"
+    },
+    {
+      "iataCode": "LWO",
+      "name": "Lviv"
+    },
+    {
+      "iataCode": "NCE",
+      "name": "Nice"
+    },
+    {
+      "iataCode": "MAN",
+      "name": "Manchester"
+    },
+    {
+      "iataCode": "WAW",
+      "name": "Warsaw Chopin"
+    },
+    {
+      "iataCode": "CPH",
+      "name": "Copenhagen"
+    },
+    {
+      "iataCode": "NCL",
+      "name": "Newcastle"
+    },
+    {
+      "iataCode": "LIS",
+      "name": "Lisbon"
+    },
+    {
+      "iataCode": "PLQ",
+      "name": "Palanga"
+    },
+    {
+      "iataCode": "PEG",
+      "name": "Perugia"
+    },
+    {
+      "iataCode": "BLL",
+      "name": "Billund"
+    },
+    {
+      "iataCode": "AMS",
+      "name": "Amsterdam"
+    },
+    {
+      "iataCode": "LRT",
+      "name": "Lorient"
+    },
+    {
+      "iataCode": "KUN",
+      "name": "Kaunas"
+    },
+    {
+      "iataCode": "BHX",
+      "name": "Birmingham"
+    },
+    {
+      "iataCode": "HAU",
+      "name": "Haugesund"
+    },
+    {
+      "iataCode": "MLA",
+      "name": "Malta"
+    },
+    {
+      "iataCode": "LUZ",
+      "name": "Lublin"
+    },
+    {
+      "iataCode": "CIA",
+      "name": "Rome Ciampino"
+    },
+    {
+      "iataCode": "BRI",
+      "name": "Bari"
+    },
+    {
+      "iataCode": "GOT",
+      "name": "GÃ¶teborg Landvetter"
+    },
+    {
+      "iataCode": "INI",
+      "name": "Nis"
+    },
+    {
+      "iataCode": "DNR",
+      "name": "Dinard"
+    },
+    {
+      "iataCode": "PGF",
+      "name": "Perpignan"
+    },
+    {
+      "iataCode": "EIN",
+      "name": "Eindhoven"
+    },
+    {
+      "iataCode": "AOI",
+      "name": "Ancona"
+    },
+    {
+      "iataCode": "TRF",
+      "name": "Oslo Torp"
+    },
+    {
+      "iataCode": "VLC",
+      "name": "Valencia"
+    },
+    {
+      "iataCode": "AAR",
+      "name": "Aarhus"
+    },
+    {
+      "iataCode": "CAG",
+      "name": "Cagliari"
+    },
+    {
+      "iataCode": "PIK",
+      "name": "Glasgow Prestwick"
+    },
+    {
+      "iataCode": "TUF",
+      "name": "Tours Loire Valley"
+    },
+    {
+      "iataCode": "GRO",
+      "name": "Barcelona Girona"
+    },
+    {
+      "iataCode": "TLL",
+      "name": "Tallinn"
+    },
+    {
+      "iataCode": "CIY",
+      "name": "Comiso"
+    },
+    {
+      "iataCode": "TFN",
+      "name": "Tenerife North"
+    },
+    {
+      "iataCode": "NTE",
+      "name": "Nantes"
+    },
+    {
+      "iataCode": "SDR",
+      "name": "Santander"
+    },
+    {
+      "iataCode": "SNN",
+      "name": "Shannon"
+    },
+    {
+      "iataCode": "CDT",
+      "name": "Castellon (Valencia)"
+    },
+    {
+      "iataCode": "NRN",
+      "name": "Dusseldorf Weeze"
+    },
+    {
+      "iataCode": "TRN",
+      "name": "Turin"
+    },
+    {
+      "iataCode": "CWL",
+      "name": "Cardiff"
+    },
+    {
+      "iataCode": "PMI",
+      "name": "Mallorca"
+    },
+    {
+      "iataCode": "GNB",
+      "name": "Grenoble"
+    },
+    {
+      "iataCode": "DLE",
+      "name": "Dole"
+    },
+    {
+      "iataCode": "GLA",
+      "name": "Glasgow"
+    },
+    {
+      "iataCode": "GDN",
+      "name": "Gdansk"
+    },
+    {
+      "iataCode": "CFE",
+      "name": "Clermont"
+    },
+    {
+      "iataCode": "RJK",
+      "name": "Rijeka"
+    },
+    {
+      "iataCode": "SVQ",
+      "name": "Seville"
+    },
+    {
+      "iataCode": "BZR",
+      "name": "Beziers"
+    },
+    {
+      "iataCode": "OSR",
+      "name": "Ostrava"
+    },
+    {
+      "iataCode": "KTW",
+      "name": "Katowice"
+    },
+    {
+      "iataCode": "CRL",
+      "name": "Brussels Charleroi"
+    },
+    {
+      "iataCode": "CTA",
+      "name": "Catania"
+    },
+    {
+      "iataCode": "RAK",
+      "name": "Marrakesh"
+    },
+    {
+      "iataCode": "ACE",
+      "name": "Lanzarote"
+    },
+    {
+      "iataCode": "LTN",
+      "name": "London Luton"
+    },
+    {
+      "iataCode": "NOC",
+      "name": "Knock"
+    },
+    {
+      "iataCode": "NUE",
+      "name": "Nuremberg"
+    },
+    {
+      "iataCode": "LNZ",
+      "name": "Linz"
+    },
+    {
+      "iataCode": "LRH",
+      "name": "La Rochelle"
+    },
+    {
+      "iataCode": "HHN",
+      "name": "Frankfurt Hahn"
+    },
+    {
+      "iataCode": "AHO",
+      "name": "Alghero"
+    },
+    {
+      "iataCode": "PFO",
+      "name": "Paphos"
+    },
+    {
+      "iataCode": "FMM",
+      "name": "Memmingen"
+    },
+    {
+      "iataCode": "RHO",
+      "name": "Rhodes"
+    },
+    {
+      "iataCode": "TMP",
+      "name": "Tampere"
+    },
+    {
+      "iataCode": "RZE",
+      "name": "Rzeszow"
+    },
+    {
+      "iataCode": "BSL",
+      "name": "Basel"
+    },
+    {
+      "iataCode": "VGO",
+      "name": "Vigo"
+    },
+    {
+      "iataCode": "TRS",
+      "name": "Trieste"
+    },
+    {
+      "iataCode": "BCN",
+      "name": "Barcelona"
+    },
+    {
+      "iataCode": "TER",
+      "name": "Terceira Lajes"
+    },
+    {
+      "iataCode": "SXB",
+      "name": "Strasbourg"
+    },
+    {
+      "iataCode": "SZY",
+      "name": "Olsztyn - Mazury"
+    },
+    {
+      "iataCode": "PSA",
+      "name": "Pisa"
+    },
+    {
+      "iataCode": "OSL",
+      "name": "Oslo"
+    },
+    {
+      "iataCode": "OUD",
+      "name": "Oujda"
+    },
+    {
+      "iataCode": "BFS",
+      "name": "Belfast International"
+    },
+    {
+      "iataCode": "KIR",
+      "name": "Kerry"
+    },
+    {
+      "iataCode": "BES",
+      "name": "Brest"
+    },
+    {
+      "iataCode": "POZ",
+      "name": "Poznan"
+    },
+    {
+      "iataCode": "CHQ",
+      "name": "Chania"
+    },
+    {
+      "iataCode": "NYO",
+      "name": "Stockholm Skavsta"
+    },
+    {
+      "iataCode": "VLL",
+      "name": "Valladolid"
+    },
+    {
+      "iataCode": "LUX",
+      "name": "Luxembourg"
+    },
+    {
+      "iataCode": "PUY",
+      "name": "Pula"
+    },
+    {
+      "iataCode": "EFL",
+      "name": "Kefalonia"
+    },
+    {
+      "iataCode": "TLV",
+      "name": "Tel Aviv"
+    }
+  ]
+}

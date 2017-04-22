@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="38px" viewBox="0 0 73 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
+    <title>slider</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="3" width="70" height="32" rx="16"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Settings" transform="translate(-1444.000000, -128.000000)">
+            <g id="tile-header" transform="translate(668.000000, 128.000000)">
+                <g id="slider" transform="translate(776.000000, 0.000000)">
+                    <g id="Rectangle-4">
+                        <use fill-opacity="0.1" fill="#35B510" fill-rule="evenodd" xlink:href="#path-1"></use>
+                        <rect stroke="#35B510" stroke-width="1" x="0.5" y="3.5" width="69" height="31" rx="15.5"></rect>
+                    </g>
+                    <circle id="Oval" fill="#35B510" cx="54" cy="19" r="19"></circle>
+                    <polyline id="Path-3" stroke="#FFFFFF" stroke-linecap="round" points="48 19.5 51.3679826 22.7805142 60 15"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
