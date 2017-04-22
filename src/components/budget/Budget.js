@@ -26,8 +26,8 @@ export const Budget = () => {
             <h4 className="single_bud_price">€150</h4>
           </div>
         </div>
-        <p className="section_desc">Pick your own:</p>
-        <div className="section_bud_own">
+        <p className="section_desc hidden" >Pick your own:</p>
+        <div className="section_bud_own hidden">
           <div className="bud_own__input">
             <label htmlFor="budget">Under<br /></label>
             <input type="number" id="budget" name="budget" className="ho_input" placeholder="Set your budget" />

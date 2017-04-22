@@ -598,3 +598,7 @@ body {
 .dropdown-section .section_single_add {
   margin-top: 10px;
 }
+
+.hidden {
+  display: none !important;
+}

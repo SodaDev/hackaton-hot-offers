@@ -7,7 +7,7 @@ export const Settings = () => {
         <h3 className="section_title">Notifications Settings</h3>
         <p className="section_desc">Set the starting airport, frequency of the notifications, weekly mail and red alert.</p>
       </div>
-      <div className="section_sub ho_card_freq">
+      <div className="section_sub ho_card_freq hidden">
         <h3 className="section_title">Frequency of the Notifications</h3>
           <select className="ho_select" defaultValue="">
             <option disabled>Select the frequency</option>
