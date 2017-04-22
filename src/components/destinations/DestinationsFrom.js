@@ -11,6 +11,7 @@ export const DestinationsFrom = (props) => {
         placeholder="Outbound airport"
         value={props.currentLocation}
         onChange={props.handleInputChange} />
+      <div className={'location' + (props.loadingLocation ? ' rotating' : '' )} onClick={props.useCurrentLocation}></div>
       <FilteredDestinations airports={props.airports} selectDestinationFrom={props.selectDestinationFrom} />
     </div>
   )

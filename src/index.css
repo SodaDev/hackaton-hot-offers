@@ -248,6 +248,7 @@ body {
 
 .ho_card .ho_card__content .ho_card__section .section_sub {
     margin-bottom: 24px;
+    position: relative;
 }
 
 .ho_card .ho_card__content .ho_card__section .section_title {
@@ -558,10 +559,24 @@ body {
     top: 6px;
 }
 
+.location {
+    background: url(images/location.svg) center center no-repeat;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 28px;
+    left: calc(100% - 31px);
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .ho_card .ho_card__content .section_single_add,
     .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
+    }
+
+    .location {
+        left: calc(32% - 30px);
     }
 }
 
@@ -570,12 +585,20 @@ body {
     .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
     }
+
+    .location {
+        left: calc(32% - 30px);
+    }
 }
 
 @media only screen and (min-width: 1200px) {
     .ho_card .ho_card__content .section_single_add,
     .ho_card .ho_card__content .ho_card_from input {
         width: 32%;
+    }
+
+    .location {
+        left: calc(32% - 30px);
     }
 }
 
@@ -801,4 +824,43 @@ body {
 
 .hidden {
     display: none !important;
+}
+
+.rotating {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 1500ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 1500ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 1500ms;
+    -ms-animation-iteration-count: infinite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@-ms-keyframes spin {
+    from { -ms-transform: rotate(0deg); }
+    to { -ms-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }

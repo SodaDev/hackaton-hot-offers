@@ -23,7 +23,9 @@ class App extends Component {
                                 currentLocation={this.state.currentLocation.name}
                                 airports={this.state.filteredAirports}
                                 handleInputChange={this.handleInputChange}
-                                selectDestinationFrom={this.selectDestinationFrom}/>
+                                selectDestinationFrom={this.selectDestinationFrom}
+                                useCurrentLocation={this.useCurrentLocation}
+                                loadingLocation={this.state.loadingLocation} />
                             <DestinationsTo
                                 destinations={this.state.watchedDestinations}
                                 addDestination={this.addDestination}/>
@@ -57,17 +59,12 @@ class App extends Component {
             {id: 4, price: 80, selected: false},
             {id: 5, price: 100, selected: false},
             {id: 6, price: 150, selected: true}
-        ]
+        ],
+        loadingLocation: false
     }
 
     componentDidMount() {
         loadAirports().then(allAirports => this.setState({allAirports}));
-
-        if ('geolocation' in navigator) {
-            navigator.geolocation.getCurrentPosition(this.loadNearestAirport, this.loadDeafaultAirport);
-        } else {
-            console.log('no geolocation')
-        }
     }
 
     selectBudget = (selectedBudget) => {
@@ -88,9 +85,23 @@ class App extends Component {
     loadNearestAirport = (geolocation) => {
         fetchAirportFromCoord(geolocation.coords.latitude, geolocation.coords.longitude)
             .then(airport => {
-                this.setState({currentLocation: airport[0]});
-            });
+                this.setState({
+                    currentLocation: airport[0],
+                    loadingLocation: false
+                });
+            }, () => this.setState({loadingLocation: false}));
     };
+
+    useCurrentLocation = () => {
+        this.setState({loadingLocation: true});
+        if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(this.loadNearestAirport, this.loadDeafaultAirport);
+        } else {
+            // show banner with error
+            this.setState({loadingLocation: false});
+            console.log('no geolocation')
+        }
+    }
 
     loadDeafaultAirport = () => {
         this.setState({
