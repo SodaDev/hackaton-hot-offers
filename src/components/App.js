@@ -80,7 +80,8 @@ class App extends Component {
     selectDestinationFrom = (airport) => {
         this.setState({
             currentLocation: airport,
-            filteredAirports: []
+            filteredAirports: [],
+            watchedDestinations: []
         });
     };
 
