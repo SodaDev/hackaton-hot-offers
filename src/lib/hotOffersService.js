@@ -1,6 +1,4 @@
-// const baseUrl = 'http://10.48.21.136:8080/hot-offers';
 const baseUrl = 'http://10.48.20.238:8080/hot-offers';
-// const baseUrl = 'http://10.48.21.122:8080/hot-offers';
 
 export const loadAirports = () => {
   return fetch(`${baseUrl}/airports`)
@@ -30,12 +28,12 @@ export const saveUserDetails = (currentLocation, watchedDestinations, availableB
         budget: selectedPrice
     });
 
-    fetch(`${baseUrl}/user-details`, {
+    return fetch(`${baseUrl}/user-details`, {
         method: 'post',
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
         },
         body: body
-    }).then(response => console.log(response));
+    });
 };

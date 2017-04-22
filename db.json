@@ -978,5 +978,42 @@
       "iataCode": "TLV",
       "name": "Tel Aviv"
     }
+  ],
+  "user-details": [
+    {
+      "userId": "12345",
+      "departureAirport": "LEJ",
+      "destinationAirports": [],
+      "budget": 150,
+      "id": 1
+    },
+    {
+      "userId": "12345",
+      "departureAirport": "LEJ",
+      "destinationAirports": [],
+      "budget": 150,
+      "id": 2
+    },
+    {
+      "userId": "12345",
+      "departureAirport": "LEJ",
+      "destinationAirports": [],
+      "budget": 60,
+      "id": 3
+    },
+    {
+      "userId": "12345",
+      "departureAirport": "LEJ",
+      "destinationAirports": [],
+      "budget": 50,
+      "id": 4
+    },
+    {
+      "userId": "12345",
+      "departureAirport": "LEJ",
+      "destinationAirports": [],
+      "budget": 50,
+      "id": 5
+    }
   ]
 }

@@ -8,8 +8,11 @@ import {DestinationsTo} from './destinations/DestinationsTo';
 import {Modal} from './modal/Modal';
 import {DestinationsList} from './destinations/DestinationsList';
 import {loadAirports, loadAirportsFrom, saveUserDetails, fetchAirportFromCoord} from "../lib/hotOffersService";
-import {flatten} from '../lib/utils';
 import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
+import {SnackBar} from './snackbar/SnackBar';
+
+let timeouts = [];
+const removeTimeouts = (list) => list.map(timeout => clearTimeout(timeout));
 
 class App extends Component {
     render() {
@@ -37,6 +40,7 @@ class App extends Component {
                         <Settings />
                     </main>
                     <Footer className="Footer" submit={this.submit}/>
+                    <SnackBar {...this.state.message} />
                 </article>
             </div>
         );
@@ -60,11 +64,20 @@ class App extends Component {
             {id: 5, price: 100, selected: false},
             {id: 6, price: 150, selected: true}
         ],
-        loadingLocation: false
+        loadingLocation: false,
+        message: {
+            isShowing: false,
+            severity: '',
+            text: ''
+        }
     }
 
-    componentDidMount() {
+    componentDidMount () {
         loadAirports().then(allAirports => this.setState({allAirports}));
+    }
+
+    componentWillUnmount () {
+        removeTimeouts(timeouts);
     }
 
     selectBudget = (selectedBudget) => {
@@ -89,7 +102,17 @@ class App extends Component {
                     currentLocation: airport[0],
                     loadingLocation: false
                 });
-            }, () => this.setState({loadingLocation: false}));
+            }, () => {
+                this.setState({
+                    loadingLocation: false,
+                    message: {
+                        isShowing: true,
+                        severity: 'danger',
+                        text: 'Cannot find your location.'
+                    }
+                });
+                this.hideMessage();
+            });
     };
 
     useCurrentLocation = () => {
@@ -97,9 +120,15 @@ class App extends Component {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(this.loadNearestAirport, this.loadDeafaultAirport);
         } else {
-            // show banner with error
-            this.setState({loadingLocation: false});
-            console.log('no geolocation')
+            this.setState({
+                loadingLocation: false,
+                message: {
+                    isShowing: true,
+                    severity: 'danger',
+                    text: 'Cannot access your location.'
+                }
+            });
+            this.hideMessage();
         }
     }
 
@@ -127,26 +156,10 @@ class App extends Component {
         }
     };
 
-    // load airport from here or after starting airport selected???
     addDestination = () => {
         this.toggleModal();
         loadAirportsFrom(this.state.currentLocation.iataCode)
             .then(airportsTo => {
-                // const newList = airportsTo.map(port => {
-                //     if (this.state.watchedDestinations.length) {
-                //         const filteredList = this.state.watchedDestinations.map(dest => {
-                //             if (dest.iataCode === port.iataCode) {
-                //                 console.log(port)
-                //                 return Object.assign({}, port, {isWatched: true});
-                //             } else {
-                //                 return Object.assign({}, port, {isWatched: false});
-                //             }
-                //         });
-                //         return filteredList[0];
-                //     } else {
-                //         return Object.assign({}, port, {isWatched: false});
-                //     }
-                // });
                 this.setState({airportsTo})
             })
     };
@@ -178,8 +191,39 @@ class App extends Component {
         }
     };
 
+    hideMessage = () => {
+        const newTimeout = setTimeout(() => {
+            const message = Object.assign({}, this.state.message, {isShowing: false});
+            this.setState({message});
+        }, 2000);
+        timeouts = [...timeouts, newTimeout];
+    }
+
+    onSaveSuccess = () => {
+        this.setState({
+            message: {
+                isShowing: true,
+                severity: 'success',
+                text: 'Settings saved.'
+            }
+        });
+        this.hideMessage();
+    }
+
+    onSaveError = () => {
+        this.setState({
+            message: {
+                isShowing: true,
+                severity: 'danger',
+                text: 'Something went wrong.'
+            }
+        });
+        this.hideMessage();
+    }
+
     submit = () => {
-        saveUserDetails(this.state.currentLocation, this.state.watchedDestinations, this.state.availableBudgets);
+        saveUserDetails(this.state.currentLocation, this.state.watchedDestinations, this.state.availableBudgets)
+            .then(res => this.onSaveSuccess(res), () => this.onSaveError());
     }
 }
 
