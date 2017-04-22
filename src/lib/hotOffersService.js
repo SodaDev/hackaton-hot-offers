@@ -1,5 +1,5 @@
 // const baseUrl = 'http://localhost:8080';
-const baseUrl = 'http://10.48.20.238:8080/hot-offers';
+const baseUrl = 'http://10.48.20.95:8080/hot-offers';
 
 export const loadAirports = () => {
   return fetch(`${baseUrl}/airports`)
@@ -23,7 +23,7 @@ export const saveUserDetails = (currentLocation, watchedDestinations, availableB
         .map(dest => dest.iataCode);
     const selectedPrice = availableBudgets.find(budget => budget.selected).price;
     const body = JSON.stringify({
-        userId: "userId123",
+        userId: "12345",
         departureAirport: airportFrom,
         destinationAirports: destinations,
         budget: selectedPrice

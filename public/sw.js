@@ -7,7 +7,7 @@ offersSocket.addEventListener('error', function (event) {
 });
 
 offersSocket.addEventListener('open', function (event) {
-    offersSocket.send('I\'m ready to rumble');
+    offersSocket.send('12345');
 });
 
 offersSocket.addEventListener('close', function (event) {
@@ -19,7 +19,7 @@ offersSocket.addEventListener('message', function (event) {
     var price = JSON.parse(event.data).fares[0].outbound.price;
     var arrival = JSON.parse(event.data).fares[0].outbound.arrivalAirport.name;
     self.registration.showNotification("Got new offers!", {
-        body: 'To ' +  arrival + ' for ' + price.value + ' ' + price.currencyCode,
+        body: 'To ' +  arrival + ' for ' + price.value.toFixed(2) + ' ' + price.currencyCode,
         icon: 'icons/icon-192x192.png',
         data: event.data
     });
