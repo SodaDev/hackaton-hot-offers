@@ -7,7 +7,7 @@ import {DestinationsFrom} from './destinations/DestinationsFrom';
 import {DestinationsTo} from './destinations/DestinationsTo';
 import {Modal} from './modal/Modal';
 import {DestinationsList} from './destinations/DestinationsList';
-import {loadAirports, loadAirportsFrom, fetchAirportFromCoord} from '../lib/hotOffersService';
+import {loadAirports, loadAirportsFrom, saveUserDetails, fetchAirportFromCoord} from "../lib/hotOffersService";
 import {flatten} from '../lib/utils';
 import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
 
@@ -16,25 +16,25 @@ class App extends Component {
         return (
             <div className="content-wrapper">
                 <article className="ho_card">
-                    <Header className="Header" />
+                    <Header className="Header"/>
                     <main className="ho_card__content">
                         <section id="destinations" className="ho_card__section">
-                            <DestinationsFrom 
+                            <DestinationsFrom
                                 currentLocation={this.state.currentLocation.name}
                                 airports={this.state.filteredAirports}
                                 handleInputChange={this.handleInputChange}
-                                selectDestinationFrom={this.selectDestinationFrom} />
-                            <DestinationsTo 
+                                selectDestinationFrom={this.selectDestinationFrom}/>
+                            <DestinationsTo
                                 destinations={this.state.watchedDestinations}
-                                addDestination={this.addDestination} />
+                                addDestination={this.addDestination}/>
                             <Modal modalActive={this.state.modalActive} toggleModal={this.toggleModal}>
                                 <DestinationsList destinations={this.state.airportsTo} addToWatched={this.addToWatched}/>
                             </Modal>
                         </section>
-                        <Budget budgets={this.state.availableBudgets} selectBudget={this.selectBudget} />
+                        <Budget budgets={this.state.availableBudgets} selectBudget={this.selectBudget}/>
                         <Settings />
                     </main>
-                    <Footer className="Footer" />
+                    <Footer className="Footer" submit={this.submit}/>
                 </article>
             </div>
         );
@@ -51,16 +51,16 @@ class App extends Component {
         airportsTo: [],
         modalActive: false,
         availableBudgets: [
-            {id: 1, price: 20, selected: false },
-            {id: 2, price: 50, selected: false },
-            {id: 3, price: 60, selected: false },
-            {id: 4, price: 80, selected: false },
-            {id: 5, price: 100, selected: false },
+            {id: 1, price: 20, selected: false},
+            {id: 2, price: 50, selected: false},
+            {id: 3, price: 60, selected: false},
+            {id: 4, price: 80, selected: false},
+            {id: 5, price: 100, selected: false},
             {id: 6, price: 150, selected: true}
         ]
     }
 
-    componentDidMount () {
+    componentDidMount() {
         loadAirports().then(allAirports => this.setState({allAirports}));
 
         if ('geolocation' in navigator) {
@@ -146,7 +146,7 @@ class App extends Component {
         }
         this.toggleModal();
         const updatedList = addToWatchedList(this.state.watchedDestinations, airport);
-        
+
         this.setState({
             watchedDestinations: updatedList
         });
@@ -154,16 +154,20 @@ class App extends Component {
 
     toggleModal = () => {
         const bodyEl = document.querySelector('body');
-        
+
         this.setState({
             modalActive: !this.state.modalActive
         });
-        
+
         if (bodyEl.classList.contains('noscroll')) {
             bodyEl.classList.remove('noscroll')
         } else {
             bodyEl.classList.add('noscroll')
         }
+    };
+
+    submit = () => {
+        saveUserDetails(this.state.currentLocation, this.state.watchedDestinations, this.state.availableBudgets);
     }
 }
 
