@@ -1,6 +1,6 @@
-// const baseUrl = 'http://10.48.20.238:8080/hot-offers/airports'
-const wroUrl = 'http://localhost:8080/wro'
-const allUrl = 'http://localhost:8080/airports'
+const wroUrl = 'http://localhost:8080/wro';
+// const allUrl = 'http://localhost:8080/airports'
+const allUrl = 'http://10.48.20.238:8080/hot-offers/airports';
 
 export const loadAirports = () => {
   // return fetch(baseUrl)

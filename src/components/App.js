@@ -6,7 +6,7 @@ import {Settings} from './settings/Settings';
 import {DestinationsFrom} from './destinations/DestinationsFrom';
 import {DestinationsTo} from './destinations/DestinationsTo';
 import {Modal} from './modal/Modal';
-import {Destination} from './destinations/Destination';
+import {DestinationsList} from "./destinations/DestinationsList";
 import {loadAirports, loadAirportsFrom} from '../lib/hotOffersService';
 import {flatten} from '../lib/utils';
 import {addToWatchedList, toggleBudget, removeSelection} from '../lib/destinationsHelpers';
@@ -28,11 +28,7 @@ class App extends Component {
                                 destinations={this.state.watchedDestinations}
                                 addDestination={this.addDestination} />
                             <Modal modalActive={this.state.modalActive} toggleModal={this.toggleModal}>
-                                {this.state.airportsTo.map(airport => (
-                                    <Destination key={airport.iataCode}
-                                        airport={airport}
-                                        addToWatched={this.addToWatched} />
-                                ))}
+                                <DestinationsList destinations={this.state.airportsTo} addToWatched={this.addToWatched}/>
                             </Modal>
                         </section>
                         <Budget budgets={this.state.availableBudgets} selectBudget={this.selectBudget} />
@@ -80,23 +76,23 @@ class App extends Component {
 
     selectDestinationFrom = (airport) => {
         this.setState({
-            currentLocation: airport.name,
+            currentLocation: airport.iataCode,
             filteredAirports: []
         });
-    }
+    };
 
     loadNearestAirport = (geolocation) => {
         console.log(geolocation.coords.latitude, geolocation.coords.longitude)
         this.setState({
             currentLocation: 'London'
         });
-    }
+    };
 
     loadDeafaultAirport = () => {
         this.setState({
             currentLocation: 'Wroclaw'
         });
-    }
+    };
 
     handleInputChange = (e) => {
         const inputVal = e.target.value;
@@ -114,7 +110,7 @@ class App extends Component {
                 filteredAirports: []
             });
         }
-    }
+    };
 
     // load airport from here or after starting airport selected???
     addDestination = () => {
@@ -138,7 +134,7 @@ class App extends Component {
                 // });
                 this.setState({airportsTo})
             })
-    }
+    };
 
     addToWatched = (airport) => {
         const res = this.state.watchedDestinations.filter(dest => dest.iataCode === airport.iataCode);
@@ -151,7 +147,7 @@ class App extends Component {
         this.setState({
             watchedDestinations: updatedList
         });
-    }
+    };
 
     toggleModal = () => {
         const bodyEl = document.querySelector('body');
