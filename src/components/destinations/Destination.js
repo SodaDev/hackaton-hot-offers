@@ -7,7 +7,7 @@ export const Destination = (props) => {
     addToWatchedHandler = partial(props.addToWatched, props.airport);
   }
 
-  const defaultUrl = "/img/default-destination.png";
+  const defaultUrl = props.defaultImage || "/img/default-destination.png";
   const imgUrl = `https://www.ryanair.com/etc/designs/ryanair/frontend/resources/ui/illustrations/destinations/${props.airport.iataCode}.png`;
   return (
     <div className={"section_single_dest " + (props.airport.isWatched ? ' disabled' : '')} id="barcelona" onClick={addToWatchedHandler}>

@@ -1,4 +1,4 @@
-const baseUrl = 'http://10.48.20.238:8080/hot-offers';
+const baseUrl = 'http://10.48.20.241:8080/hot-offers';
 
 export const loadAirports = () => {
   return fetch(`${baseUrl}/airports`)
