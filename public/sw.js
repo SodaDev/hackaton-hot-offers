@@ -1,6 +1,6 @@
 "use strict";
 
-var offersSocket = new WebSocket("ws://10.48.20.95:8080/hot-offers/offers");
+var offersSocket = new WebSocket("ws://10.48.20.241:8080/hot-offers/offers");
 var sessionId = Math.ceil(Math.random() * 1000000000);
 
 offersSocket.addEventListener('error', function (event) {
